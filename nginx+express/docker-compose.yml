@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  web:
+    restart: on-failure
+    build: ./web
+    ports:
+      - '81:5001'
+  nginx:
+    build: ./nginx
+    ports:
+    - '80:80'
+    depends_on:
+    - web
